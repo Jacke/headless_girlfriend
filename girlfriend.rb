@@ -3,9 +3,15 @@ require './lib/headless'
 require 'selenium-webdriver'
 require 'webdriver-user-agent'
 
-headless_toggle = false
-love_duration = 10000
-girl_name = "CiaraBrite"
+unless ARGV.length == 2
+  puts "Dude, your girl is waiting. But first Find her name nl.bongacams.com "
+  puts "Usage: ruby girlfriend.rb her_name love_duration_in_milliseconds \n"
+  exit
+end
+
+headless_toggle = true
+love_duration = ARGV[1]
+girl_name = ARGV[0]
 #girl = "https://nl.bongacams.com/pippalee"
 girl = "https://nl.bongacams.com/#{girl_name}"
 
@@ -66,7 +72,7 @@ routine(driver)
 sleep love_duration
 
 if headless_toggle 
-  headless.video.stop_and_save("/home/stan/test#{Time.now.to_i}.mov")
+  headless.video.stop_and_save("girlstapes/girl#{girl_name}-#{Time.now.to_i}.mov")
   puts driver.title
   headless.destroy
 end

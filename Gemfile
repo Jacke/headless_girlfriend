@@ -1,4 +1,6 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in ci_util.gemspec
-gemspec
+gem 'selenium-webdriver'
+gem 'webdriver-user-agent'
+
+
